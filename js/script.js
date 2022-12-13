@@ -38,11 +38,16 @@ const profiles = [
     }
 ]
 
-// MILESTONE 1
+let profileDiv = document.getElementsByClassName('profile')
+console.log(profileDiv)
+
+// MILESTONE 1/2
 // Prendere gli elementi degli oggetti da dentro l'array e stamparli in console
 for (let i = 0; i < profiles.length; i++) {
     console.log(profiles[i]);
     for (const key in profiles[i]) {
-        console.log(key + ":" + " " + profiles[i][key])
+        // console.log(key + ":" + " " + profiles[i][key])
+        console.log(`${key}: ${profiles[i][key]}`)
+        profileDiv[i].innerHTML += `${key}: ${profiles[i][key]} <br>`
     }
 }
