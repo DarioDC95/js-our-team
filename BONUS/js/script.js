@@ -4,7 +4,7 @@ const profiles = [
     {
         name: "Wayne Barnett",
         role: "Founder & CEO",
-        image: "wayne-barnet-founder-ceo.jpg"
+        image: "wayne-barnett-founder-ceo.jpg"
     },
     
     {
@@ -45,9 +45,9 @@ console.log(profileDiv)
 // Prendere gli elementi degli oggetti da dentro l'array e stamparli in console
 for (let i = 0; i < profiles.length; i++) {
     console.log(profiles[i]);
+    profileDiv[i].innerHTML = `<img class="card-img-top" src="../img/${profiles[i].image}" alt="Profile"> <div class="card-body"><h4 class="family-serif grey bold">${profiles[i].name}</h4><p class="grey">${profiles[i].role}</p>`
     for (const key in profiles[i]) {
         // console.log(key + ":" + " " + profiles[i][key])
         console.log(`${key}: ${profiles[i][key]}`)
-        profileDiv[i].innerHTML += `${key}: ${profiles[i][key]} <br>`
     }
 }
