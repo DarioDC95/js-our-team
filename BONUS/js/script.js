@@ -18,19 +18,19 @@ const profiles = [
         role: "Office Manager",
         image: "walter-gordon-office-manager.jpg"
     },
-
+    
     {
         name: "Angela Lopez",
         role: "Social Media Manager",
         image: "angela-lopez-social-media-manager.jpg"
     },
-
+    
     {
         name: "Scott Estrada",
         role: "Developer",
         image: "scott-estrada-developer.jpg"
     },
-
+    
     {
         name: "Barbara Ramos",
         role: "Graphic Designer",
@@ -38,16 +38,29 @@ const profiles = [
     }
 ]
 
-let profileDiv = document.getElementsByClassName('profile')
-console.log(profileDiv)
+console.log(profiles)
 
-// MILESTONE 1/2
-// Prendere gli elementi degli oggetti da dentro l'array e stamparli in console
+// Funzioni per la colonna
+function divColProfile(index) {
+    let column = document.createElement('div');
+    column.className = "col-6 col-lg-4";
+    let cardProfile = divCardProfile(index);
+    column.appendChild(cardProfile);
+    console.log(column);
+    return column
+}
+
+// Funzione per la Card
+function divCardProfile(index) {
+    let divCard = document.createElement('div');
+    divCard.className = "card text-center profile";
+    divCard.innerHTML = `<img class="card-img-top" src="../img/${profiles[index].image}" alt="Profile"> <div class="card-body"><h4 class="family-serif grey bold">${profiles[index].name}</h4><p class="grey">${profiles[index].role}</p></div>`;
+    console.log(divCard)
+    return divCard;
+}
+
+// Incolliamo tutto nel DOM
 for (let i = 0; i < profiles.length; i++) {
-    console.log(profiles[i]);
-    profileDiv[i].innerHTML = `<img class="card-img-top" src="../img/${profiles[i].image}" alt="Profile"> <div class="card-body"><h4 class="family-serif grey bold">${profiles[i].name}</h4><p class="grey">${profiles[i].role}</p>`
-    for (const key in profiles[i]) {
-        // console.log(key + ":" + " " + profiles[i][key])
-        console.log(`${key}: ${profiles[i][key]}`)
-    }
+    let columnProfile = divColProfile(i);
+    document.getElementById('profiles-DOM').appendChild(columnProfile);
 }
