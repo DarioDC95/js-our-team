@@ -39,4 +39,10 @@ const profiles = [
 ]
 
 // MILESTONE 1
-
+// Prendere gli elementi degli oggetti da dentro l'array e stamparli in console
+for (let i = 0; i < profiles.length; i++) {
+    console.log(profiles[i]);
+    for (const key in profiles[i]) {
+        console.log(key + ":" + " " + profiles[i][key])
+    }
+}
