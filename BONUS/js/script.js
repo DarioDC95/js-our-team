@@ -40,26 +40,31 @@ const profiles = [
 console.log(profiles)
 
 // Funzioni per la colonna e vi appendo la card all'interno
-function divColProfile(index) {
+function divColProfile(member) {
     let column = document.createElement('div');
     column.className = "col-6 col-lg-4";
-    let cardProfile = divCardProfile(index);
+    let cardProfile = divCardProfile(member);
     column.appendChild(cardProfile);
     console.log(column);
-    return column
+    return column;
 }
 
 // Funzione per la Card
-function divCardProfile(index) {
+function divCardProfile(member) {
     let divCard = document.createElement('div');
     divCard.className = "card text-center profile";
-    divCard.innerHTML = `<img class="card-img-top" src="../img/${profiles[index].image}" alt="Profile"> <div class="card-body"><h4 class="family-serif grey bold">${profiles[index].name}</h4><p class="grey">${profiles[index].role}</p></div>`;
+    divCard.innerHTML = `<img class="card-img-top" src="../img/${member.image}" alt="Profile"> 
+                         <div class="card-body">
+                            <h4 class="family-serif grey bold">${member.name}</h4>
+                            <p class="grey">${member.role}</p>
+                         </div>`;
     console.log(divCard);
     return divCard;
 }
 
 // Incolliamo le colonne nel DOM
 for (let i = 0; i < profiles.length; i++) {
-    let columnProfile = divColProfile(i);
+    let teamMember = profiles[i];
+    let columnProfile = divColProfile(teamMember);
     document.getElementById('profiles-DOM').appendChild(columnProfile);
 }
